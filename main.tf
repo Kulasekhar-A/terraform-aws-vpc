@@ -28,6 +28,7 @@ resource "aws_subnet" "public" {
         },
         var.public_subnet_tags
     )
+}
 
     #private subnet
 
@@ -46,4 +47,4 @@ resource "aws_subnet" "public" {
             },
             var.private_subnet_tags
         )
-   }
+   }   
