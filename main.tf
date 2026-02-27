@@ -24,8 +24,26 @@ resource "aws_subnet" "public" {
     tags = merge (
         local.common_tags,
         {
-            Name = "${var.project}-${var.environment}-ublic-${local.az_names[count.index]}"
+            Name = "${var.project}-${var.environment}-public-${local.az_names[count.index]}"
         },
         var.public_subnet_tags
     )
-}
+
+    #private subnet
+
+    resource "aws_subnet" "main" {
+        count = length(var.private_subnet_cidr)
+        vpc_id     = aws_vpc.main.id
+        cidr_block = var.private_subnet_cidr[count.index]
+        availability_zone = local.az_names[count.index]
+        map_public_ip_on_launch = true 
+
+
+        tags = merge (
+            local.common_tags,
+            {
+                Name = "${var.project}-${var.environment}-private-${local.az_names[count.index]}"
+            },
+            var.private_subnet_tags
+        )
+   }
