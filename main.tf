@@ -137,7 +137,7 @@ resource "aws_nat_gateway" "main" {
         {
             Name = "${var.project}-${var.environment}"
         },
-        var.aws_nat_gateway_tags
+        var.nat_gateway_tags
     )
   # To ensure proper ordering, it is recommended to add an explicit dependency
   # on the Internet Gateway for the VPC.
@@ -152,7 +152,7 @@ resource "aws_route" "private" {
   nat_gateway_id = aws_nat_gateway.main.id
 }
 
-#public nat gateway
+#database nat gateway
 resource "aws_route" "database" {
   route_table_id            = aws_route_table.database.id
   destination_cidr_block    = "0.0.0.0/0"
