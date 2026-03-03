@@ -73,22 +73,23 @@ module "vpc" {
 | is_peering_required | Whether VPC peering is required | `bool` | `false` | no |
 	
 
-	
-
-# Outputs
+## Outputs
 
 Outputs should be defined in your outputs.tf. Common outputs from this module include:
 
-Name	Description
-vpc_id	The ID of the VPC
-public_subnet_ids	List of public subnet IDs
-private_subnet_ids	List of private subnet IDs
-database_subnet_ids	List of database subnet IDs
-Subnet Naming Convention
+| Name                | Description                         |
+|---------------------|-------------------------------------|
+| vpc_id              | The ID of the VPC                   |
+| public_subnet_ids   | List of public subnet IDs           |
+| private_subnet_ids  | List of private subnet IDs          |
+| database_subnet_ids | List of database subnet IDs         |
+
+## Subnet Naming Convention
 Resources are named following this pattern:
 
 {project}-{environment}-{tier}-{availability-zone}
-Example:
+
+## Example:
 
 roboshop-dev-public-us-east-1a
 roboshop-dev-private-us-east-1b
