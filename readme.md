@@ -56,8 +56,7 @@ module "vpc" {
 |-----------------------------|----------------------------- |------------|---------------  |-----------|
 | project                     |Project name used for naming  | string     |  n/a            |   yes     |
 |                             |and tagging resources         |            |                 |           |
-|                             |                              |            |                 |           |
-|environment                  |Deployement environment.Must  | string     |  n/a            |   yes     |
+|                             |                              |            |                 |           |  |environment                  |Deployement environment.Must  | string     |  n/a            |   yes     |
 |                             |be one of: dev, qa, uat, prod |            |                 |           |
 |                             |                              |            |                 |           |
 |vpc_cidr                     |CIDR block for the VPC        | string     |"10.0.0.0/16"    |    no     |
@@ -72,9 +71,8 @@ module "vpc" {
 |                             |                              |            |                 |           |
 |databse_subnet_cidrs         |List of CIDR blocks for       |            |                 |           |
 |                             |database subnets.One subnet   |list(string)|["10.0.21.0/24", |   no      |
-|                             |is ccreated for AZ.           |            |"10.0.22.0/24"]  |           |
-
-
+|                             |is created for AZ.            |            |"10.0.22.0/24"]  |           |
+|vpc_tags                     |Additional tags to merge on   |map(strinh) |     {}          |   no      |
 
 			
 	 	
