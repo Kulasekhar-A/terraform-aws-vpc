@@ -52,14 +52,25 @@ module "vpc" {
  
 # Inputs
 
-|  Name	                      |                Description	                                        |  Type         | Default            |  Required |
-|-----------------------------|----------------------------- ---------------------------------------|---------------|--------------------|-----------|
-|  project                    |Project name used for naming and tagging resources                   | string        |  n/a               |  yes      |
-|  environmen                 |Deployment environment. Must be one of: dev, qa, uat, prod           | string        |  n/a               |  yes      |
-|  vpc_cidr                   |CIDR block for the VPC                                               | string        | "10.0.0.0/16"      |  no       |
-|  public_subnet_cidrs        |List of CIDR blocks for public subnets. One subnet is created per AZ.| list(string)  | ["10.0.1.0/24"     |  no       |
-|                             |                                                                     |               |  "10.0.2.0/24"]	 |           |		
-	 	
+| Name | Description | Type | Default | Required |
+|------|------------|------|---------|----------|
+| project | Project name used for naming and tagging resources | `string` | n/a | yes |
+| environment | Deployment environment (dev, qa, uat, prod) | `string` | n/a | yes |
+| vpc_cidr | CIDR block for the VPC | `string` | `"10.0.0.0/16"` | no |
+| public_subnet_cidrs | List of CIDR blocks for public subnets (one per AZ) | `list(string)` | `["10.0.1.0/24","10.0.2.0/24"]` | no |
+| private_subnet_cidrs | List of CIDR blocks for private subnets (one per AZ) | `list(string)` | `["10.0.11.0/24","10.0.12.0/24"]` | no |
+| database_subnet_cidrs | List of CIDR blocks for database subnets (one per AZ) | `list(string)` | `["10.0.21.0/24","10.0.22.0/24"]` | no |
+| vpc_tags | Additional tags for VPC | `map(string)` | `{}` | no |
+| igw_tags | Additional tags for Internet Gateway | `map(string)` | `{}` | no |
+| public_subnet_tags | Additional tags for public subnets | `map(string)` | `{}` | no |
+| private_subnet_tags | Additional tags for private subnets | `map(string)` | `{}` | no |
+| database_subnet_tags | Additional tags for database subnets | `map(string)` | `{}` | no |
+| public_route_table_tags | Additional tags for public route table | `map(string)` | `{}` | no |
+| private_route_table_tags | Additional tags for private route table | `map(string)` | `{}` | no |
+| database_route_table_tags | Additional tags for database route table | `map(string)` | `{}` | no |
+| eip_tags | Additional tags for Elastic IP | `map(string)` | `{}` | no |
+| nat_gateway_tags | Additional tags for NAT Gateway | `map(string)` | `{}` | no |
+| is_peering_required | Whether VPC peering is required | `bool` | `false` | no |
 	
 
 	
@@ -83,22 +94,3 @@ roboshop-dev-public-us-east-1a
 roboshop-dev-private-us-east-1b
 roboshop-dev-database-us-east-1a
 
-| Name | Description | Type | Default | Required |
-|------|------------|------|---------|----------|
-| project | Project name used for naming and tagging resources | `string` | n/a | yes |
-| environment | Deployment environment (dev, qa, uat, prod) | `string` | n/a | yes |
-| vpc_cidr | CIDR block for the VPC | `string` | `"10.0.0.0/16"` | no |
-| public_subnet_cidrs | List of CIDR blocks for public subnets (one per AZ) | `list(string)` | `["10.0.1.0/24","10.0.2.0/24"]` | no |
-| private_subnet_cidrs | List of CIDR blocks for private subnets (one per AZ) | `list(string)` | `["10.0.11.0/24","10.0.12.0/24"]` | no |
-| database_subnet_cidrs | List of CIDR blocks for database subnets (one per AZ) | `list(string)` | `["10.0.21.0/24","10.0.22.0/24"]` | no |
-| vpc_tags | Additional tags for VPC | `map(string)` | `{}` | no |
-| igw_tags | Additional tags for Internet Gateway | `map(string)` | `{}` | no |
-| public_subnet_tags | Additional tags for public subnets | `map(string)` | `{}` | no |
-| private_subnet_tags | Additional tags for private subnets | `map(string)` | `{}` | no |
-| database_subnet_tags | Additional tags for database subnets | `map(string)` | `{}` | no |
-| public_route_table_tags | Additional tags for public route table | `map(string)` | `{}` | no |
-| private_route_table_tags | Additional tags for private route table | `map(string)` | `{}` | no |
-| database_route_table_tags | Additional tags for database route table | `map(string)` | `{}` | no |
-| eip_tags | Additional tags for Elastic IP | `map(string)` | `{}` | no |
-| nat_gateway_tags | Additional tags for NAT Gateway | `map(string)` | `{}` | no |
-| is_peering_required | Whether VPC peering is required | `bool` | `false` | no |
