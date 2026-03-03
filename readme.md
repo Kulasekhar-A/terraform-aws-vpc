@@ -52,29 +52,13 @@ module "vpc" {
  
 # Inputs
 
-|  Name	                      |    Description	             |  Type      | Default         |  Required |
-|-----------------------------|----------------------------- |------------|---------------  |-----------|
-| project                     |Project name used for naming  | string     |  n/a            |   yes     |
-|                             |and tagging resources         |            |                 |           |
-|                             |                              |            |                 |           |  |environment                  |Deployement environment.Must  | string     |  n/a            |   yes     |
-|                             |be one of: dev, qa, uat, prod |            |                 |           |
-|                             |                              |            |                 |           |
-|vpc_cidr                     |CIDR block for the VPC        | string     |"10.0.0.0/16"    |    no     |
-|                             |                              |            |                 |           |
-|public_subnet_cidrs          |List of CIDR blocks for public|            |                 |           |
-|                             |public subnets.One subnet is  |list(string)|["10.0.1.0/24",  |   no      |
-|                             |created for AZ.               |            |"10.0.2.0/24"]   |           |
-|                             |                              |            |                 |           |
-|private_sunet_cidrs          |List of CIDR blocks for       |            |                 |           |
-|                             |private subnets.One subbnet   |list(string)|["10.0.11.0/24", |   no      |
-|                             |is created for AZ.            |            |"10.0.12.0/24"]  |           |
-|                             |                              |            |                 |           |
-|databse_subnet_cidrs         |List of CIDR blocks for       |            |                 |           |
-|                             |database subnets.One subnet   |list(string)|["10.0.21.0/24", |   no      |
-|                             |is created for AZ.            |            |"10.0.22.0/24"]  |           |
-|vpc_tags                     |Additional tags to merge on   |map(strinh) |     {}          |   no      |
-
-			
+|  Name	                      |                Description	                                        |  Type         | Default            |  Required |
+|-----------------------------|----------------------------- ---------------------------------------|---------------|--------------------|-----------|
+|  project                    |Project name used for naming and tagging resources                   | string        |  n/a               |  yes      |
+|  environmen                 |Deployment environment. Must be one of: dev, qa, uat, prod           | string        |  n/a               |  yes      |
+|  vpc_cidr                   |CIDR block for the VPC                                               | string        | "10.0.0.0/16"      |  no       |
+|  public_subnet_cidrs        |List of CIDR blocks for public subnets. One subnet is created per AZ.| list(string)  | ["10.0.1.0/24"     |  no       |
+|                             |                                                                     |               |  "10.0.2.0/24"]	 |           |		
 	 	
 	
 
@@ -108,6 +92,4 @@ Example:
 roboshop-dev-public-us-east-1a
 roboshop-dev-private-us-east-1b
 roboshop-dev-database-us-east-1a
-
-## Inputs
 
