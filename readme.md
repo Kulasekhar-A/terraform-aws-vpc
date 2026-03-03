@@ -19,7 +19,11 @@ module "vpc" {
   is_peering_required = false
 }
 
-# Features
+```
+
+```
+
+## Features
 
 * VPC with configurable CIDR block and DNS hostname support
 * Public, private, and database subnet tiers across multiple Availability Zones
