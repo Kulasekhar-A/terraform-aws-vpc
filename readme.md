@@ -32,22 +32,22 @@ module "vpc" {
 # Resources
 
      Name	                                  Type
-aws_vpc.main	                            resource
-aws_internet_gateway.main	            `   resource
-aws_subnet.public	                        resource
-aws_subnet.private	                        resource
-aws_subnet.database	                        resource
-aws_eip.nat	                                resource
-aws_nat_gateway.main	                    resource
-aws_route_table.public	                    resource
-aws_route_table.private	                    resource
-aws_route_table.database	                resource
-aws_route.public	                        resource
-aws_route.private	                        resource
-aws_route.database	                        resource
-aws_route_table_association.public	        resource
-aws_route_table_association.private	        resource
-aws_route_table_association.database	    resource
+* aws_vpc.main	                            resource
+* aws_internet_gateway.main	            `   resource
+* aws_subnet.public	                        resource
+* aws_subnet.private	                    resource
+* aws_subnet.database	                    resource
+* aws_eip.nat	                            resource
+* aws_nat_gateway.main	                    resource
+* aws_route_table.public	                resource
+* aws_route_table.private	                resource
+* aws_route_table.database	                resource
+* aws_route.public	                        resource
+* aws_route.private	                        resource
+* aws_route.database	                    resource
+* aws_route_table_association.public	    resource
+* aws_route_table_association.private	    resource
+* aws_route_table_association.database	    resource
 
 # Inputs
 
