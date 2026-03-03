@@ -32,7 +32,7 @@ module "vpc" {
 ## Resources
 
  |    Name	                              |    Type      |
- | ------------------------------------------------------|
+ | ---------------------------------------|--------------|
  | aws_vpc.main	                          |  resource    |
  | aws_internet_gateway.main	          |  resource    |
  | aws_subnet.public	                  |  resource    |
