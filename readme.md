@@ -87,11 +87,15 @@ Outputs should be defined in your outputs.tf. Common outputs from this module in
 ## Subnet Naming Convention
 Resources are named following this pattern:
 
+```
 {project}-{environment}-{tier}-{availability-zone}
+```
 
 ## Example:
 
+```
 roboshop-dev-public-us-east-1a
 roboshop-dev-private-us-east-1b
 roboshop-dev-database-us-east-1a
+```
 
