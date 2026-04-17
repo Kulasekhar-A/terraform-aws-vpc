@@ -19,5 +19,5 @@ output "database_subnet_id" {
 }
 
 output "database_subnet_group_name" {
-   value = aws_subnet_group.robosho.name
+   value = aws_subnet_group.roboshop.name
 }
